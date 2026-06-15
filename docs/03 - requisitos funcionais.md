@@ -1,87 +1,125 @@
-# REGRAS DE NEGÓCIO
+#REQUISITOS FUNCIONAIS
 
-## RN001 - Cadastro Obrigatório
+## RF001 - Acessar formulário de cadastro por QR Code
 
-O cliente deverá realizar um cadastro rápido antes de acessar o catálogo de produtos.
+### Descrição
 
----
-
-## RN002 - Cancelamento de Pedido
-
-O cliente poderá cancelar um pedido somente enquanto o pagamento não tiver sido confirmado.
+O sistema deve permitir que o cliente acesse o formulário de cadastro ao escanear o QR Code.
 
 ---
 
-## RN003 - Pagamento via Pix
+## RF002 - Realizar cadastro rápido
 
-Ao selecionar a opção Pix, o sistema deverá gerar uma cobrança Pix correspondente ao valor total do pedido.
+### Descrição
 
----
-
-## RN004 - Tempo Limite para Pagamento Pix
-
-O cliente terá 3 minutos para concluir o pagamento via Pix.
-
-Após esse período, o pagamento será considerado expirado.
+O sistema deve permitir que o cliente realize um cadastro rápido antes de acessar o catálogo de produtos.
 
 ---
 
-## RN005 - Pix Expirado
+## RF003 - Visualizar catálogo de produtos
 
-Quando o tempo limite para pagamento expirar, o sistema deverá apresentar as seguintes opções:
+### Descrição
 
-* Cancelar pedido;
-* Alterar a forma de pagamento para pagamento no caixa.
-
----
-
-## RN006 - Alteração do Tempo de Pagamento Pix
-
-O administrador poderá configurar o tempo limite para pagamento via Pix.
-
-Exemplos:
-
-* Dias normais: 3 minutos;
-* Eventos: 1 minuto.
+O sistema deve permitir que o cliente visualize o catálogo de produtos disponível após a conclusão do cadastro.
 
 ---
 
-## RN007 - Envio do Pedido para Separação
+## RF004 - Navegar por categorias
 
-Somente pedidos com pagamento confirmado poderão ser enviados para separação.
+### Descrição
 
----
-
-## RN008 - Fluxo de Pagamento no Caixa
-
-Pedidos criados com a opção "Pagar no Caixa" deverão permanecer com status AGUARDANDO_PAGAMENTO até a confirmação do pagamento pelo operador do caixa.
+O sistema deve permitir que o cliente visualize produtos por categoria ou visualize todos os produtos disponíveis.
 
 ---
 
-## RN009 - Confirmação de Pagamento
+## RF005 - Selecionar produtos
 
-Após a confirmação do pagamento, o sistema deverá alterar automaticamente o status do pedido para PAGO.
+### Descrição
 
----
-
-## RN010 - Entrega do Pedido
-
-Após a separação dos itens, o atendente deverá chamar o cliente para retirada do pedido.
+O sistema deve permitir que o cliente selecione produtos e informe a quantidade desejada para cada item.
 
 ---
 
-## RN011 - Finalização do Pedido
+## RF006 - Visualizar pedido
 
-O pedido somente poderá ser marcado como FINALIZADO após a confirmação da entrega ao cliente.
+### Descrição
 
----
-
-## RN012 - Identificação do Pedido
-
-Todo pedido deverá possuir um número único de identificação para utilização durante os processos de pagamento, separação e entrega.
+O sistema deve permitir que o cliente visualize os itens selecionados, quantidades, valores unitários e valor total do pedido.
 
 ---
 
-## RN013 - Número do Pedido na Entrega
+## RF007 - Gerenciar itens do pedido
 
-O atendente deverá utilizar o nome do cliente e o número do pedido para realizar a chamada de retirada, evitando ambiguidades entre clientes com nomes iguais.
+### Descrição
+
+O sistema deve permitir que o cliente adicione, remova ou altere a quantidade dos itens selecionados.
+
+---
+
+## RF008 - Selecionar forma de pagamento
+
+### Descrição
+
+O sistema deve permitir que o cliente escolha entre pagamento via Pix ou pagamento no caixa.
+
+---
+
+## RF009 - Gerar QR Code Pix
+
+### Descrição
+
+O sistema deve gerar um QR Code Pix quando o cliente selecionar a opção de pagamento via Pix.
+
+---
+
+## RF010 - Gerar solicitação de pagamento no caixa
+
+### Descrição
+
+O sistema deve gerar uma solicitação de pagamento para o operador do caixa quando o cliente selecionar a opção de pagamento presencial.
+
+---
+
+## RF011 - Consultar pedido no caixa
+
+### Descrição
+
+O sistema deve permitir que o operador do caixa visualize os itens do pedido, quantidades, valores unitários e valor total.
+
+---
+
+## RF012 - Selecionar forma de pagamento no caixa
+
+### Descrição
+
+O sistema deve permitir que o operador do caixa selecione a forma de pagamento.
+
+### Opções
+
+* Dinheiro
+* Cartão de Crédito
+* Cartão de Débito
+
+---
+
+## RF013 - Visualizar pedidos para separação
+
+### Descrição
+
+O sistema deve permitir que o atendente visualize os pedidos com pagamento confirmado.
+
+---
+
+## RF014 - Confirmar entrega do pedido
+
+### Descrição
+
+O sistema deve permitir que o atendente confirme a entrega do pedido ao cliente.
+
+---
+
+## RF015 - Identificar pedido por número
+
+### Descrição
+
+O sistema deve gerar um número único para cada pedido e disponibilizá-lo durante os processos de pagamento, separação e entrega.

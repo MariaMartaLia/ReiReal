@@ -171,3 +171,45 @@ Todo pedido deverá possuir um número único de identificação para utilizaç�
 
 
 O atendente deverá utilizar o nome do cliente e o número do pedido para realizar a chamada de retirada, evitando ambiguidades entre clientes com nomes iguais.
+
+
+
+## RE014 - Saída de Estoque
+
+Toda saída de estoque deverá ocorrer exclusivamente através do processo de venda ou movimentações autorizadas pelo sistema.
+
+Não será permitida a alteração direta da quantidade em estoque.
+
+
+---
+
+
+
+## RE015 - Desativação Automática por Falta de Estoque
+
+
+
+Quando a quantidade em estoque atingir zero unidades, o produto deverá ser desativado automaticamente pelo sistema.
+
+Produtos desativados não poderão ser vendidos até que haja reposição de estoque.
+
+---
+
+
+
+## RE016 - Alerta de Estoque Mínimo
+
+
+
+O sistema deverá gerar um alerta quando a quantidade em estoque atingir ou ficar abaixo da quantidade mínima definida para o produto.
+
+O alerta deverá auxiliar o administrador no planejamento da reposição dos produtos.
+
+Exemplo:
+
+* Estoque mínimo: 5 unidades;
+* Estoque atual: 4 unidades;
+
+Resultado:
+
+* Alerta de estoque baixo.

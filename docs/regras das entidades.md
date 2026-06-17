@@ -75,3 +75,11 @@ O sistema deverá impedir a venda de produtos sem estoque disponível.
 ### RE012 - Quantidade solicitada não pode exceder o estoque
 
 O sistema deverá informar a quantidade disponível quando a solicitação exceder o estoque atual.
+
+---
+
+### RE013 - Estoque não pode ser alterado diretamente
+
+Após a criação do produto, o estoque não poderá ser alterado diretamente.
+
+Toda alteração de estoque deverá ocorrer através das operações de entrada ou saída de estoque.

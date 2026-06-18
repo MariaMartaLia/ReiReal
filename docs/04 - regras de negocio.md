@@ -213,3 +213,9 @@ Exemplo:
 Resultado:
 
 * Alerta de estoque baixo.
+
+
+### RN017 - A quantidade de um ItemPedido deve ser maior ou igual a 1.
+
+
+Só será aceito itens no itemPedido com quantidade minima de 1 ou mais.

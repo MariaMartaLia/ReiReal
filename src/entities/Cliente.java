@@ -50,7 +50,7 @@ public class Cliente {
         this.telefone = telefone;}
 
 public boolean validaCliente( ){
-        if (nome.isBlank() || telefone.isBlank() ){
+        if (nome==null || telefone==null || nome.isBlank() || telefone.isBlank() ){
         return false;
     }
     if (nome.matches("^[a-z A-Z]+$") && telefone.matches("^[0-9]{11}$")){

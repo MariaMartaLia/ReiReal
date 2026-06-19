@@ -32,12 +32,8 @@ public BigDecimal getValorUnitario(){
 public BigDecimal getSubtotal(){
     return this.subtotal;
 }
-public Produto getProduto(){
-    return this.produto;
-}
-public Pedido getPedido() {
-        return this.pedido;
-    }
+public Produto getProduto(){return this.produto;}
+public Pedido getPedido() {return this.pedido;}
     public Boolean validacaoItem( ){
     if(produto == null || quantidade > produto.getEstoque() || quantidade <= 0 ){
         return false;

@@ -35,7 +35,7 @@ public class Pedido {
     public Timestamp getDataPedido(){
         return this.dataPedido;
     }
-    public BigDecimal getValorTotal(){
+    public static BigDecimal getValorTotal(){
         return this.valorTotal;
     }
     public Cliente getCliente(){

@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import enums.StatusPedido;
 
 public class Pedido {
     private UUID id;
@@ -64,6 +65,13 @@ public class Pedido {
     public boolean enviarParaSeparacao() {
         if (this.statusPedido == StatusPedido.PAGO) {
             this.statusPedido = StatusPedido.EM_SEPARACAO;
+            return true;
+        }
+        return false;
+    }
+    public boolean pedidoProntoParaRetirada(){
+        if (this.statusPedido == StatusPedido.EM_SEPARACAO) {
+            this.statusPedido = StatusPedido.PRONTO_PARA_RETIRADA;
             return true;
         }
         return false;

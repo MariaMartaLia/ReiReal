@@ -37,7 +37,7 @@ public class Produto {
         return estoque;
     }
 
-    public Boolean getAtivo() {
+    public boolean getAtivo() {
         return ativo;
     }
 
@@ -53,7 +53,7 @@ public class Produto {
         this.preco = preco;
     }
 
-    public Boolean produtoValido() {
+    public boolean produtoValido() {
         if (nome == null || nome.isBlank()) {
             return false;
         }
@@ -69,7 +69,7 @@ public class Produto {
         return true;
     }
 
-    public int adicionarEstoque(int quantidade) {
+    public void ionarEstoque(int quantidade) {
         estoque = estoque + quantidade;
         return estoque;
     }

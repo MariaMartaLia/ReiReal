@@ -1,10 +1,12 @@
 package entities;
 
+import enums.StatusPagamento;
 import enums.TipoPagamento;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.UUID;
+
 
 public class Pagamento {
     private UUID id;

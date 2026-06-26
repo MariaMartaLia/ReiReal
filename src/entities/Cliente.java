@@ -1,7 +1,8 @@
-package entities;
+    package entities;
 
 import java.sql.Timestamp;
 import java.util.UUID;
+import java.math.BigDecimal;
 
 
 public class Cliente {
@@ -9,6 +10,7 @@ public class Cliente {
     private String nome;
     private String telefone;
     private Timestamp dataCriacao;
+    private BigDecimal creditoDisponivel;
 
 
     public Cliente(String nome, String telefone) {
@@ -16,7 +18,7 @@ public class Cliente {
         this.nome = nome;
         this.telefone = telefone;
         this.dataCriacao = new Timestamp(System.currentTimeMillis());
-
+        this.creditoDisponivel = BigDecimal.ZERO;
 
     }
 
@@ -40,6 +42,11 @@ public class Cliente {
         return dataCriacao;
     }
 
+    public BigDecimal getCreditoDisponivel() {
+        
+        return creditoDisponivel;
+    }
+
     public void setNome(String nome) {
 
         this.nome = nome;
@@ -50,13 +57,25 @@ public class Cliente {
         this.telefone = telefone;}
 
 public boolean validaCliente( ){
-        if (nome==null || telefone==null || nome.isBlank() || telefone.isBlank() ){
+        if (nome==null || telefone==null
+            || nome.isBlank()
+            || telefone.isBlank()
+            || !nome.matches("^[a-zA-ZÀ-ÿ ]+$")
+            || !telefone.matches("^[0-9]{11}$")){
         return false;
     }
-    if (nome.matches("^[a-z A-Z]+$") && telefone.matches("^[0-9]{11}$")){
         return true ;
+}
+
+public void adicionarCredito(BigDecimal valor){
+    if (valor.compareTo(BigDecimal.ZERO) > 0){
+        this.creditoDisponivel = this.creditoDisponivel.add(valor);
+    }   
+}
+public boolean usarCredito(BigDecimal valor){
+    if(valor.compareTo(BigDecimal.ZERO) <= 0 || this.creditoDisponivel.compareTo(valor) < 0){
+        return false;}
+        this.creditoDisponivel = this.creditoDisponivel.subtract(valor);
+        return true;
     }
-    else {
-        return false;
-    }
-}}
+}

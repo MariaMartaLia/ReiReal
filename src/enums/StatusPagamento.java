@@ -4,5 +4,8 @@ public enum StatusPagamento {
     PENDENTE,
     PAGO,
     EXPIRADO,
-    CANCELADO
+    CANCELADO,
+    ESTORNADO,
+    EM_PROCESSAMENTO,
+    CREDITO_CLIENTES
 }

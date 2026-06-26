@@ -8,15 +8,17 @@ public class Produto {
     private String nome;
     private BigDecimal preco;
     private int estoque;
-    private Boolean ativo;
+    private int estoqueMinimo;
+    private boolean ativo;
 
     private Categoria categoria;
 
-    public Produto(String nome, BigDecimal preco, int estoque, Categoria categoria) {
+    public Produto(String nome, BigDecimal preco, int estoque, int estoqueMinimo, Categoria categoria) {
         this.id = UUID.randomUUID();
         this.nome = nome;
         this.preco = preco;
         this.estoque = estoque;
+        this.estoqueMinimo = estoqueMinimo;
         this.ativo = true;
         this.categoria = categoria;
     }
@@ -35,6 +37,9 @@ public class Produto {
 
     public int getEstoque() {
         return estoque;
+    }
+    public int getEstoqueMinimo() {
+        return estoqueMinimo;
     }
 
     public boolean getAtivo() {
@@ -69,15 +74,14 @@ public class Produto {
         return true;
     }
 
-    public void ionarEstoque(int quantidade) {
+    public void adicionarEstoque(int quantidade) {
         estoque = estoque + quantidade;
-        return estoque;
+        
     }
 
     public void ativarProduto() {
         this.ativo = true;
     }
-
     public void desativarProduto() {
         this.ativo = false;
     }
@@ -87,6 +91,9 @@ public class Produto {
 
         return true;
     }
+    public boolean estoqueAbaixoMinimo() {
+    return estoque <= estoqueMinimo;
+        }
     public int removerEstoque(int quantidade) {
         if (estoque < quantidade) {
             return 0;

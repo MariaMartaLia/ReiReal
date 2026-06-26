@@ -1,0 +1,23 @@
+[33m2c144c0[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m feat: implementa entidades e regras de negocio do ReiReal
+[33m574d856[m feat(database): create initial database schema
+[33m6be116c[m fix(pedido): corrige acesso ao valorTotal da instancia
+[33m27fa228[m feat(pagamento): finaliza regras de confirmação e cancelamento
+[33m0c16968[m feat(pagamento): adiciona enum status pagamento
+[33m37db69e[m feat(pedido): implementa entidade pedido e fluxo de status
+[33m1c44149[m feat(item-pedido): implementa entidade item pedido e validacoes
+[33mdb37e84[m feat(produto): implementa entidade produto e controle de estoque
+[33mbf23de8[m docs: adiciona requisitos funcionais, regras de negocio e regras das entidades
+[33m24a492b[m feat(categoria): implementa entidade categoria com validacao e controle de status
+[33m70cf9e1[m feat: implementa entidade Cliente com validações
+[33m36cfe07[m docs: adiciona README principal do projeto
+[33m150a344[m feat: define enums do sistema
+[33m986e00f[m docs: adiciona readme do projeto
+[33m5444685[m docs: define der do sistema
+[33mddcc712[m docs: define diagrama de dominio
+[33ma83fa78[m docs: define relacionamentos do sistema
+[33mb3d7a26[m docs: define fluxo principal do pedido
+[33m2aa627e[m docs: define entidades do sistema
+[33m0793213[m docs: adiciona requisitos funcionais
+[33m998a2de[m docs: define regras de negocio do sistema
+[33mdbab5ad[m docs: define atores e responsabilidades
+[33m7ea78c4[m docs: adiciona visao geral do projeto

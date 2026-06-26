@@ -20,12 +20,20 @@ public class Pagamento {
 
 
     public Pagamento(Pedido pedido, TipoPagamento tipoPagamento) {
-        this.id = UUID.randomUUID();
-        this.valor = pedido.getValorTotal();
-        this.statusPagamento = StatusPagamento.PENDENTE;
+        if (pedido == null){
+            throw new IllegalArgumentException("Pedido não pode ser nulo");
+        }
         this.pedido = pedido;
-        this.dataPagamento = new java.sql.Timestamp(System.currentTimeMillis());
+        if (tipoPagamento == null ){
+            throw new IllegalArgumentException("Tipo de pagamento não pode ser nulo ou negativo");
+        }
         this.tipoPagamento = tipoPagamento;
+        this.valor = pedido.getValorTotal();
+        this.id = UUID.randomUUID();
+       
+        this.statusPagamento = StatusPagamento.PENDENTE;
+        this.dataPagamento = null;
+        
     }
     public UUID getId() {
         return id;
@@ -47,7 +55,8 @@ public class Pagamento {
     }
     public boolean confirmarPagamento(){
          if(this.statusPagamento == StatusPagamento.PENDENTE){
-           this.statusPagamento = StatusPagamento.PAGO ;
+            this.statusPagamento = StatusPagamento.PAGO ;
+            this.dataPagamento = new Timestamp(System.currentTimeMillis());
             pedido.confirmarPagamento();
             return true;
         }
@@ -56,11 +65,10 @@ public class Pagamento {
     public boolean cancelarPagamento(){
         if(this.statusPagamento == StatusPagamento.PENDENTE) {
             this.statusPagamento = StatusPagamento.CANCELADO;
+            pedido.cancelarPedido();
             return true;
         }
         return false;
     }
-
-
 
 }

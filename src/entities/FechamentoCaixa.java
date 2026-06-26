@@ -93,19 +93,22 @@ public boolean registrarPagamento(Pagamento pagamento){
     }
     BigDecimal valor = pagamento.getValor();
     switch (pagamento.getTipoPagamento()) {
-        case DINHEIRO: totalDinheiro = totalDinheiro.add(valor);
-            
-            break;
-        case CARTAO_CREDITO: totalCartaoCredito = totalCartaoCredito.add(valor);
-            
-            break;
-        case CARTAO_DEBITO: totalCartaoDebito = totalCartaoDebito.add(valor);
+        case DINHEIRO: 
+         totalDinheiro = totalDinheiro.add(valor);
+         break;
+
+        case CARTAO_CREDITO: 
+          totalCartaoCredito = totalCartaoCredito.add(valor);
+          break;
+      
+        case CARTAO_DEBITO: 
+          totalCartaoDebito = totalCartaoDebito.add(valor);
+          break;
         
+          case PIX: 
+            totalPix = totalPix.add(valor);
             break;
-        case PIX: totalPix = totalPix.add(valor);
-            
-            break;
-            default: 
+        default: 
             throw new IllegalArgumentException("Tipo de pagamento inválido."); 
     }
     atualizarEntradas();
@@ -114,4 +117,27 @@ public boolean registrarPagamento(Pagamento pagamento){
 }
 private void atualizarEntradas(){
     subtotalEntradas = totalDinheiro.add(totalCartaoCredito).add(totalCartaoDebito).add(totalPix);
+} 
+public boolean registrarSaida(BigDecimal valor){
+    if(valor == null || valor.compareTo(BigDecimal.ZERO) <= 0){
+        throw new IllegalArgumentException("Valor de saída não pode ser nulo ou negativo.");
+    }
+            if(!caixaAberto){
+        throw new IllegalStateException("Não é possível registrar saídas em um caixa fechado.");
+    }
+    subtotalSaidas = subtotalSaidas.add(valor);
+
+    return true;
+}
+public boolean fecharCaixa(){
+    if(!caixaAberto){
+        throw new IllegalStateException("O caixa já está fechado.");
+    }
+    caixaAberto = false;
+    dataFechamento = new Timestamp(System.currentTimeMillis());
+    calcularValorFinal();
+    return true;
+}
+private void calcularValorFinal(){
+    valorFinal = valorAbertura.add(subtotalEntradas).subtract(subtotalSaidas);
 }}
